@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../../styles/auth.css';
+import { API_BASE_URL } from '../../config/api';
 
 const UserRegister = () => {
 
@@ -13,7 +14,7 @@ const UserRegister = () => {
     const email     = e.target.email.value;
     const password  = e.target.password.value;
 
-    await axios.post("http://localhost:3000/api/auth/user/register", {
+    await axios.post(`${API_BASE_URL}/api/auth/user/register`, {
       fullname: firstName + " " + lastName,
       email,
       password,

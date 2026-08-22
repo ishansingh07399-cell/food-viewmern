@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import BottomNav from '../../components/BottomNav';
 import '../../styles/home.css';
+import { API_BASE_URL } from '../../config/api';
 
 const Saved = () => {
   const [foodItems, setFoodItems] = useState([]);
@@ -12,7 +13,7 @@ const Saved = () => {
   useEffect(() => {
     const fetchSaved = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/food/saved', {
+        const response = await axios.get(`${API_BASE_URL}/api/food/saved`, {
           withCredentials: true,
         });
         setFoodItems(response.data);

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import BottomNav from '../../components/BottomNav';
 import '../../styles/profile.css';
+import { API_BASE_URL } from '../../config/api';
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -13,7 +14,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/food-partner/profile', {
+        const response = await axios.get(`${API_BASE_URL}/api/food-partner/profile`, {
           withCredentials: true,
         });
         setProfile(response.data);
@@ -29,7 +30,7 @@ const Profile = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get('http://localhost:3000/api/auth/food-partner/logout', {
+      await axios.get(`${API_BASE_URL}/api/auth/food-partner/logout`, {
         withCredentials: true,
       });
       navigate('/food-partner/login');

@@ -2,39 +2,37 @@ import React from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/auth.css';
-
-
+import { API_BASE_URL } from '../../config/api';
 
 const FoodPartnerRegister = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const businessName = e.target.businessName.value;
-    const contactName=e.target.contactName.value;
-    const phone=e.target.phone.value;;
-    const email=e.target.email.value;
-    const password=e.target.password.value;
-    const address=e.target.address.value;
+    const contactName = e.target.contactName.value;
+    const phone = e.target.phone.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const address = e.target.address.value;
 
-    const response = await axios.post("http://localhost:3000/api/auth/food-partner/register",{
-      businessName,
-      contactName,
-      phone,
-      email,
-      password,
-      address
-    },{ withCredentials: true })
-    .then(response =>{
+    try {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/food-partner/register`, {
+        name: businessName,
+        contactName,
+        phone,
+        email,
+        password,
+        address
+      }, { withCredentials: true });
       console.log(response.data);
       navigate("/");
-    })
-    .catch(error =>{
-      console.log(error);
+    } catch (error) {
+      console.error(error);
       navigate("/food-partner/register");
-    })
-  }
+    }
+  };
   
   return (
     <div className="auth-page">

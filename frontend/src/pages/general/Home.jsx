@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/home.css';
 import BottomNav from '../../components/BottomNav';
+import { API_BASE_URL } from '../../config/api';
 
 const Home = () => {
   const [foodItems, setFoodItems] = useState([]);
@@ -16,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const fetchFoodItems = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/food', {
+        const response = await axios.get(`${API_BASE_URL}/api/food`, {
           withCredentials: true,
         });
         const items = Array.isArray(response.data) ? response.data : (response.data.foodItems || []);
@@ -59,7 +60,7 @@ const Home = () => {
   const handleLike = async (itemId) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/food/${itemId}/like`,
+        `${API_BASE_URL}/api/food/${itemId}/like`,
         {},
         { withCredentials: true }
       );
@@ -80,7 +81,7 @@ const Home = () => {
   const handleSave = async (itemId) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/food/${itemId}/save`,
+        `${API_BASE_URL}/api/food/${itemId}/save`,
         {},
         { withCredentials: true }
       );

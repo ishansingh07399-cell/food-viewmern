@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/auth.css';
+import { API_BASE_URL } from '../../config/api';
 
 const UserLogin = () => {
 
@@ -12,7 +13,7 @@ const UserLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/user/login", {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/user/login`, {
         email,
         password
       }, { withCredentials: true });

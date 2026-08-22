@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import BottomNav from '../../components/BottomNav';
 import '../../styles/create-food.css';
+import { API_BASE_URL } from '../../config/api';
 
 const CreateFood = () => {
   const [name, setName] = useState('');
@@ -37,7 +38,7 @@ const CreateFood = () => {
       formData.append('description', description);
       formData.append('video', videoFile);
 
-      await axios.post('http://localhost:3000/api/food', formData, {
+      await axios.post(`${API_BASE_URL}/api/food`, formData, {
         withCredentials: true,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
