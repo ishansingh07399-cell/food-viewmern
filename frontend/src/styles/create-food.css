@@ -1,0 +1,201 @@
+/* =============================
+   CREATE FOOD PAGE
+   ============================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.create-page {
+  min-height: 100vh;
+  padding: 32px 20px 100px; /* bottom padding for nav */
+  background: #0a0a0a;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Header */
+.create-header {
+  margin-bottom: 28px;
+}
+
+.create-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.create-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Form */
+.create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Video Upload Area */
+.video-upload-area {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 380px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  position: relative;
+}
+
+.video-upload-area:hover {
+  border-color: rgba(255, 107, 53, 0.6);
+  background: rgba(255, 107, 53, 0.04);
+}
+
+.video-upload-area.has-video {
+  border-style: solid;
+  border-color: rgba(255, 107, 53, 0.5);
+}
+
+/* Placeholder content */
+.video-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.video-upload-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.video-upload-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.video-upload-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Video preview */
+.video-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Field */
+.create-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.create-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.2px;
+}
+
+/* Input / Textarea */
+.create-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.create-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.create-input:focus {
+  border-color: rgba(255, 107, 53, 0.6);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
+}
+
+.create-textarea {
+  resize: none;
+  line-height: 1.6;
+}
+
+/* Error */
+.create-error {
+  font-size: 13px;
+  color: #ff5c5c;
+  text-align: center;
+  background: rgba(255, 92, 92, 0.08);
+  border: 1px solid rgba(255, 92, 92, 0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+/* Submit Button */
+.create-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.3px;
+}
+
+.create-btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: scale(1.01);
+}
+
+.create-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.create-btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Spinner */
+.create-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

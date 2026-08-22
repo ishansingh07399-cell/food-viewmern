@@ -1,0 +1,40 @@
+/* ===========================
+   THEME VARIABLES
+   =========================== */
+:root {
+  --font-family: 'Inter', sans-serif;
+
+  /* Brand */
+  --accent: #e23744;
+  --accent-hover: #c72f3b;
+  --accent-light: rgba(226, 55, 68, 0.1);
+
+  /* Light Mode */
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --surface-border: #e8e8e8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --input-bg: #f9f9f9;
+  --input-border: #e0e0e0;
+  --input-border-focus: #e23744;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --link: #e23744;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111113;
+    --surface: #1c1c1f;
+    --surface-border: #2a2a2e;
+    --text-primary: #f1f1f1;
+    --text-secondary: #9ca3af;
+    --input-bg: #26262a;
+    --input-border: #333338;
+    --input-border-focus: #e23744;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3);
+    --link: #f87171;
+  }
+}

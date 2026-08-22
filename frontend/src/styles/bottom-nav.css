@@ -1,0 +1,94 @@
+/* =============================
+   BOTTOM NAVIGATION BAR — ULTRA PREMIUM
+   ============================= */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  z-index: 100;
+  height: 64px;
+  background: rgba(12, 12, 12, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px;
+}
+
+/* Each nav tab */
+.nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 1;
+  height: 100%;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Active tab state */
+.nav-item.active {
+  color: #fff;
+}
+
+/* Top active indicator bar */
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b35, #f7931e);
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 10px rgba(255, 107, 53, 0.8);
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.18);
+}
+
+/* Icon */
+.nav-icon {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: block;
+}
+
+/* Plus icon — special gradient style */
+.nav-icon--plus {
+  font-size: 26px;
+  font-weight: 300;
+  background: linear-gradient(135deg, #ff6b35, #f7c59f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-item.active .nav-icon--plus {
+  transform: scale(1.25) rotate(90deg);
+}
+
+/* Label */
+.nav-label {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}

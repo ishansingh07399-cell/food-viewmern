@@ -1,0 +1,14 @@
+$kind: http-request
+name: loginfoodpartner
+url: http://localhost:3000/api/auth/food-partner/login
+method: POST
+body:
+  type: json
+  content: "{ \r
+
+    \"email\": \"test@94.com\", \r
+
+    \"password\": \"123456\" \r
+
+    }"
+order: 3851333357117745
