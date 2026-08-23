@@ -3,6 +3,24 @@ const foodPartnerModel=require("../models/foodpartner");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const getCookieOptions = () => {
+  const isProduction = process.env.NODE_ENV === 'production' || !!process.env.FRONTEND_URL;
+  return {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+  };
+};
+
+const getClearCookieOptions = () => {
+  const isProduction = process.env.NODE_ENV === 'production' || !!process.env.FRONTEND_URL;
+  return {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax'
+  };
+};
 
 async function registerUser(req, res) {
   try {
@@ -18,7 +36,7 @@ async function registerUser(req, res) {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
-    res.cookie("token", token);
+    res.cookie("token", token, getCookieOptions());
     res.status(201).json({
       message: "User registered successfully",
       user: { _id: user._id, email: user.email, fullname: user.fullname },
@@ -44,7 +62,7 @@ async function loginUser(req, res) {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
-    res.cookie("token", token);
+    res.cookie("token", token, getCookieOptions());
     res.status(200).json({
       message: "User logged in successfully",
       user: { _id: user._id, email: user.email, fullname: user.fullname },
@@ -55,7 +73,7 @@ async function loginUser(req, res) {
 }
 
 function logoutUser(req,res){
-  res.clearCookie("token");
+  res.clearCookie("token", getClearCookieOptions());
   res.status(200).json({
     message:"User logged out successfully"
   });
@@ -83,7 +101,7 @@ async function registerFoodPartner(req, res) {
 
     const token = jwt.sign({ id: foodPartner._id }, process.env.JWT_SECRET);
 
-    res.cookie("token", token);
+    res.cookie("token", token, getCookieOptions());
     res.status(201).json({
       message: "food partner registered successfully",
       foodPartner: {
@@ -118,7 +136,7 @@ const loginFoodPartner = async (req, res) => {
         const token = jwt.sign({ id: foodPartner._id }, process.env.JWT_SECRET);
 
         // 4. Save the token inside cookies
-        res.cookie('token', token);
+        res.cookie('token', token, getCookieOptions());
 
         // 5. Send successful response
         res.status(200).json({
@@ -137,7 +155,7 @@ const loginFoodPartner = async (req, res) => {
 const logoutFoodPartner=async(req,res) =>{
   try {
         // Clear the token from the cookies
-        res.clearCookie('token');
+        res.clearCookie('token', getClearCookieOptions());
 
         // Send a successful response
         res.status(200).json({ 

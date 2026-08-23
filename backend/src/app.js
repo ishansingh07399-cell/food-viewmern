@@ -10,8 +10,20 @@ const foodPartnerRoutes=require("./routes/food-partner");
 const app=express();
 
 // CORS — allow frontend to communicate with backend
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://food-viewmern.vercel.app',
+    process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+            return callback(null, true);
+        }
+        return callback(null, true);
+    },
     credentials: true,               // allow cookies/withCredentials
 }));
 
