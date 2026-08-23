@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/auth.css';
 import { API_BASE_URL } from '../../config/api';
 
 const UserLogin = () => {
-
   const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+    setLoading(true);
+
     const email = e.target.email.value;
     const password = e.target.password.value;
+
     try {
       const response = await axios.post(`${API_BASE_URL}/api/auth/user/login`, {
         email,
@@ -19,8 +24,11 @@ const UserLogin = () => {
       }, { withCredentials: true });
       console.log(response.data);
       navigate("/");
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.error(err);
+      setError(err.response?.data?.message || "Invalid email or password. If you don't have an account, please create one first.");
+    } finally {
+      setLoading(false);
     }
   };
   
@@ -37,14 +45,22 @@ const UserLogin = () => {
         <h1 className="auth-heading">Welcome back</h1>
         <p className="auth-subheading">Sign in to continue to your feed</p>
 
+        {error && (
+          <div style={{ color: '#ff4d4d', backgroundColor: 'rgba(255, 77, 77, 0.1)', border: '1px solid rgba(255, 77, 77, 0.3)', padding: '10px 14px', borderRadius: '8px', marginBottom: '16px', fontSize: '0.85rem' }}>
+            {error}
+          </div>
+        )}
+
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="form-label" htmlFor="email">Email</label>
             <input
               id="email"
+              name="email"
               type="email"
               className="form-input"
               placeholder="you@example.com"
+              required
             />
           </div>
 
@@ -52,13 +68,17 @@ const UserLogin = () => {
             <label className="form-label" htmlFor="password">Password</label>
             <input
               id="password"
+              name="password"
               type="password"
               className="form-input"
               placeholder="Enter your password"
+              required
             />
           </div>
 
-          <button type="submit" className="auth-btn">Sign In</button>
+          <button type="submit" className="auth-btn" disabled={loading}>
+            {loading ? "Signing in..." : "Sign In"}
+          </button>
         </form>
 
         <p className="auth-footer">
