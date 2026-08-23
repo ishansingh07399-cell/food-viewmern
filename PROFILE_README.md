@@ -17,11 +17,11 @@
 
 ## 👨‍💻 About Me
 
-- 🔭 **Focus:** Crafting responsive, scalable **MERN Stack** web applications and robust backend services.
+- 🔭 **Focus:** Building responsive, production-grade **MERN Stack** web applications and scalable backends.
 - 🏫 **Education:** Computer Science student at **Indian Institute of Information Technology (IIIT)**.
-- 🧩 **Problem Solving:** Consistently practicing Data Structures & Algorithms to write optimized, performant code.
-- 🏆 **Codolio Profile:** **227+ Problems Solved** across 153 active coding days.
-- 👯 **Open For:** Full-Stack development roles, open-source projects, and React/Node.js collaborations.
+- 🧩 **Data Structures & Algorithms:** Consistently solving algorithmic problems to write optimized, high-performance code.
+- 🏆 **Coding Consistency:** **136+ DSA Problems Solved** across 153 active problem-solving days.
+- 👯 **Open For:** Full-Stack web development roles, open-source projects, and React.js/Node.js collaborations.
 
 ---
 
@@ -43,7 +43,7 @@
   <img src="https://img.shields.io/badge/Firebase-%23039BE5.svg?style=for-the-badge&logo=firebase" alt="Firebase" />
 </p>
 
-### 💻 Programming Languages (Codolio Distribution)
+### 💻 Programming Languages (Codolio Analytics)
 <p>
   <img src="https://img.shields.io/badge/C++_38%25-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
   <img src="https://img.shields.io/badge/JavaScript_31%25-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
@@ -70,34 +70,22 @@
 
 ---
 
-## 📊 Data Structures & Problem Solving Stats
+## 📊 Data Structures & Algorithms (DSA) Stats
 
 <div align="center">
 
-| Category | Solved / Stat |
+| Category | Count |
 | :--- | :--- |
-| 🧩 **Total Solved** | **227 Problems** |
-| ⚡ **DSA Questions** | **136** (70 Easy \| 61 Medium \| 5 Hard) |
+| ⚡ **Total DSA Solved** | **136 Questions** |
+| 🟢 **Easy** | **70** |
+| 🟡 **Medium** | **61** |
+| 🔴 **Hard** | **5** |
 | 🔥 **Active Problem Solving Days** | **153 Days** |
-| ⭐ **Codolio Global Rank** | **#22928** |
 
 </div>
 
-### 🧠 Top Focus Areas
+### 🧠 Core Algorithm Focus
 `Arrays (74)` • `HashMap & Set (30)` • `Strings (28)` • `Two Pointers (25)` • `Linked Lists (18)` • `Sorting (17)` • `Math (15)`
-
-### 🌐 Coding Profiles
-<p align="center">
-  <a href="https://leetcode.com">
-    <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode" />
-  </a>
-  <a href="https://www.codechef.com/users/mysteve94">
-    <img src="https://img.shields.io/badge/CodeChef-8B4513?style=for-the-badge&logo=codechef&logoColor=white" alt="CodeChef" />
-  </a>
-  <a href="https://codeforces.com/profile/Ishan_Singh_89">
-    <img src="https://img.shields.io/badge/Codeforces-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white" alt="Codeforces" />
-  </a>
-</p>
 
 ---
 
